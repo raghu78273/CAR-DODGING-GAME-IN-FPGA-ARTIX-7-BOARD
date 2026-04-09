@@ -1,0 +1,118 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Apr  3 18:06:36 2026
+| Host         : RAGHUVEER running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file car_dodging_game_top_control_sets_placed.rpt
+| Design       : car_dodging_game_top
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    40 |
+|    Minimum number of control sets                        |    40 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   133 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    40 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |    10 |
+| >= 6 to < 8        |     8 |
+| >= 8 to < 10       |     7 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    12 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              47 |           26 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             114 |           37 |
+| Yes          | No                    | No                     |             139 |           57 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             127 |           63 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------+-------------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+|     Clock Signal    |               Enable Signal               |                Set/Reset Signal               | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------+-------------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+|  clk50mhz_IBUF_BUFG | gameplay/turn_timer[5]_i_2_n_0            | gameplay/turn_timer[5]_i_1_n_0                |                1 |              1 |         1.00 |
+|  clk50mhz_IBUF_BUFG | vga_timing/h_count[9]_i_1_n_0             | vga_timing/v_count[9]_i_1_n_0                 |                1 |              2 |         2.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/turn_timer[5]_i_2_n_0            |                                               |                1 |              4 |         4.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/hit_timer[4]_i_1_n_0             |                                               |                1 |              4 |         4.00 |
+|  clk50mhz_IBUF_BUFG | enemies/enemy_lane[6][1]_i_1_n_0          | gameplay/clear_enemies                        |                2 |              5 |         2.50 |
+|  clk50mhz_IBUF_BUFG | enemies/enemy_lane[5][1]_i_1_n_0          | gameplay/clear_enemies                        |                3 |              5 |         1.67 |
+|  clk50mhz_IBUF_BUFG | enemies/enemy_lane[4][1]_i_1_n_0          | gameplay/clear_enemies                        |                4 |              5 |         1.25 |
+|  clk50mhz_IBUF_BUFG | enemies/rand_gen/E[0]                     | gameplay/clear_enemies                        |                5 |              5 |         1.00 |
+|  clk50mhz_IBUF_BUFG | enemies/rand_gen/enemy_active_reg[0][0]   | gameplay/clear_enemies                        |                3 |              5 |         1.67 |
+|  clk50mhz_IBUF_BUFG | gameplay/FSM_sequential_state_reg[0]_3[0] | gameplay/clear_enemies                        |                5 |              5 |         1.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/FSM_sequential_state_reg[0]_2[0] | gameplay/clear_enemies                        |                4 |              5 |         1.25 |
+|  clk50mhz_IBUF_BUFG | enemies/enemy_lane[0][1]_i_1_n_0          | gameplay/clear_enemies                        |                3 |              5 |         1.67 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[2]              | gameplay/SR[0]                                |                3 |              6 |         2.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[3]              | gameplay/clear_enemies_reg_0[0]               |                3 |              6 |         2.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[1]              | gameplay/clear_enemies_reg_1[0]               |                2 |              6 |         3.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/frame_tick_reg_0[0]              | gameplay/clear_enemies                        |                3 |              6 |         2.00 |
+|  clk50mhz_IBUF_BUFG | pixel_div                                 | vga_timing/h_count[9]_i_1_n_0                 |                3 |              7 |         2.33 |
+|  clk50mhz_IBUF_BUFG | vga_timing/h_count[9]_i_1_n_0             |                                               |                2 |              7 |         3.50 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_speed[2]_i_1_n_0           |                                               |                3 |              7 |         2.33 |
+|  clk50mhz_IBUF_BUFG | gameplay/player_lane[1]_i_1_n_0           |                                               |                3 |              7 |         2.33 |
+|  clk50mhz_IBUF_BUFG | vga_timing/frame_tick                     |                                               |                4 |              8 |         2.00 |
+|  clk50mhz_IBUF_BUFG | vga_timing/frame_tick                     | enemies/rand_gen/lfsr[12]_i_1_n_0             |                4 |              8 |         2.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[6][0]           | gameplay/clear_enemies                        |                3 |              9 |         3.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[4][0]           | gameplay/clear_enemies                        |                4 |              9 |         2.25 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[5][0]           | gameplay/clear_enemies                        |                3 |              9 |         3.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[0][0]           | gameplay/clear_enemies                        |                2 |              9 |         4.50 |
+|  clk50mhz_IBUF_BUFG | gameplay/enemy_active_reg[7][0]           | gameplay/clear_enemies                        |                2 |              9 |         4.50 |
+|  clk50mhz_IBUF_BUFG | gameplay/player_x[9]_i_1_n_0              |                                               |                8 |             10 |         1.25 |
+|  clk50mhz_IBUF_BUFG | enemies/E[0]                              |                                               |                4 |             16 |         4.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/player2_score[15]_i_1_n_0        |                                               |                5 |             16 |         3.20 |
+|  clk50mhz_IBUF_BUFG | gameplay/player1_score[15]_i_1_n_0        |                                               |                8 |             16 |         2.00 |
+|  clk50mhz_IBUF_BUFG | gameplay/score[15]_i_1_n_0                |                                               |                7 |             16 |         2.29 |
+|  clk50mhz_IBUF_BUFG |                                           | btn_left_cond/debounce_count[0]_i_1_n_0       |                5 |             19 |         3.80 |
+|  clk50mhz_IBUF_BUFG |                                           | btn_pause_cond/debounce_count[0]_i_1__2_n_0   |                5 |             19 |         3.80 |
+|  clk50mhz_IBUF_BUFG |                                           | btn_restart_cond/debounce_count[0]_i_1__3_n_0 |                5 |             19 |         3.80 |
+|  clk50mhz_IBUF_BUFG |                                           | btn_right_cond/debounce_count[0]_i_1__0_n_0   |                5 |             19 |         3.80 |
+|  clk50mhz_IBUF_BUFG |                                           | btn_start_cond/debounce_count[0]_i_1__1_n_0   |                5 |             19 |         3.80 |
+|  clk50mhz_IBUF_BUFG |                                           | gameplay/clear_enemies                        |               12 |             19 |         1.58 |
+|  clk50mhz_IBUF_BUFG | pixel_div                                 |                                               |               11 |             28 |         2.55 |
+|  clk50mhz_IBUF_BUFG |                                           |                                               |               26 |             47 |         1.81 |
++---------------------+-------------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+
+
